@@ -206,16 +206,17 @@
       </div>
     </div>
 
-<!-- Botón para ir a las flores -->
+    <!-- Botón para ir a las flores -->
     <div class="buttonxa">
       <button>
-        <a id="go-to-flowers" href="FLORES.html">flores pa la mejor player de valorant</a>
+        <a href="FLORES.html" id="flowers-link">flores pa la mejor player de valorant</a>
       </button>
     </div>
 
     <!-- Script para detener la canción al cambiar de página -->
     <script>
-      document.getElementById("go-to-flowers").addEventListener("click", function (event) {
+      // Detener la canción antes de navegar a FLORES.html
+      document.getElementById("flowers-link").addEventListener("click", function (event) {
         event.preventDefault(); // Evita que el enlace se ejecute de inmediato
         const audio = document.getElementById("libro-song");
         audio.pause(); // Detiene la canción
