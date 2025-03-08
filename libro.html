@@ -206,13 +206,26 @@
       </div>
     </div>
 
-    <!-- Botón adicional -->
+<!-- Botón para ir a las flores -->
     <div class="buttonxa">
       <button>
-        <a href="FLORES.html">flores pa la mejor player de valorant</a>
+        <a id="go-to-flowers" href="FLORES.html">flores pa la mejor player de valorant</a>
       </button>
     </div>
 
+    <!-- Script para detener la canción al cambiar de página -->
+    <script>
+      document.getElementById("go-to-flowers").addEventListener("click", function (event) {
+        event.preventDefault(); // Evita que el enlace se ejecute de inmediato
+        const audio = document.getElementById("libro-song");
+        audio.pause(); // Detiene la canción
+        audio.currentTime = 0; // Reinicia la canción
+        setTimeout(() => {
+          window.location.href = "FLORES.html"; // Navega a la nueva página después de detener la canción
+        }, 100); // Pequeño retraso para asegurar que la canción se detenga
+      });
+    </script>
+  
     <script src="Libro.js"></script>
   </body>
 </html>
