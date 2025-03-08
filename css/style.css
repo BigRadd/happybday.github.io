@@ -1,107 +1,289 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap");
-
-* {
-  font-family: "Poppins", cursive;
-}
 body {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1602928944155-4c7e0370b2d2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZvbmRvJTIwZGUlMjBwYW50YWxsYSUyMGRlJTIwZmxvcmVzJTIwYW1hcmlsbGFzfGVufDB8fDB8fHww");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-.text-shadow-custom {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.greetings {
-  font-size: 6rem;
-  font-weight: 900;
-}
-.greetings > span {
-  animation: glow 2.5s ease-in-out infinite;
-}
-@keyframes glow {
-  0%,
-  100% {
-    color: #fff;
-    text-shadow: 0 0 12px #fbff00, 0 0 50px #fbff00, 0 0 100px #fbff00;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-image: url("https://images.unsplash.com/photo-1602928944155-4c7e0370b2d2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZvbmRvJTIwZGUlMjBwYW50YWxsYSUyMGRlJTIwZmxvcmVzJTIwYW1hcmlsbGFzfGVufDB8fDB8fHww");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  10%,
-  90% {
-    color: #696565;
-    text-shadow: none;
+  
+  * {
+    box-sizing: border-box;
   }
-}
-.greetings > span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.greetings > span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.greetings > span:nth-child(4) {
-  animation-delay: 0.6s;
-}
-.greetings > span:nth-child(5) {
-  animation-delay: 0.8s;
-}
-
-.description {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.buttonxa a {
-  text-decoration: none;
-  font-size: 1rem;
-  color: #111;
-}
-
-@media screen and (max-width: 574px) {
-  .greetings {
-    display: block;
-    font-size: 3rem;
-    font-weight: 500;
+  
+  .centered {
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
+  }
+  
+  .flipbook {
+    width: 90vw;
+    max-width: 600px;
+    height: 80vh;
+    max-height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+  }
+  
+  .flipbook .leaf {
+    position: absolute;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 50%;
+    background-color: #fff;
+    left: 50%;
+    transition: transform 1s;
+    transform: rotate3d(0, 1, 0, 0deg);
+    transform-origin: left 0px;
+  }
+  
+  .flipbook .leaf .page {
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  
+  .flipbook .leaf .page.front {
+    transform: rotate3d(0, 1, 0, 0deg) translate3d(0, 0, 0.1px);
+  }
+  
+  .flipbook .leaf .page.back {
+    transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 0.1px);
+  }
+  
+  .disable {
+    user-select: none;
+    opacity: 0.6;
+  }
+  
+  .title {
     text-align: center;
+    width: 100%;
+    padding-top: 1em;
   }
-  .description {
-    font-size: 1rem;
+  
+  .page {
+    padding: 1em;
   }
+  
+  .page.front {
+    border-radius: 0em 1em 1em 0;
+  }
+  
+  .page.back {
+    border-radius: 1em 0em 0em 1em;
+  }
+  
+  .leaf {
+    background-color: transparent !important;
+  }
+  
+  .pageNumber {
+    font-size: 0.75em;
+    position: absolute;
+    bottom: 0.5em;
+  }
+  
+  .front .pageNumber {
+    right: 0.75em;
+  }
+  
+  .back .pageNumber {
+    left: 0.75em;
+  }
+  
+  .contents-row {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  .contents-row .spacer {
+    flex: 1 1;
+    height: 1em;
+    border-bottom: 1px dashed #000;
+  }
+  
+  .contents-row .text {
+    flex: 0 0 auto;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: cursive;
+  }
+  
+  p {
+    font-size: 1em;
+  }
+  
+  body[onload] {
+    transform: scale(1);
+    transform-origin: center top;
+  }
+  
+  body[onload] .leaf:nth-child(1) {
+    transform: rotate3d(0, 1, 0, -128deg) !important;
+  }
+  
+  body[onload] .leaf:nth-child(2) {
+    transform: rotate3d(0, 1, 0, -70deg) !important;
+  }
+  
+  body[onload] .leaf:nth-child(3) {
+    transform: rotate3d(0, 1, 0, -40deg) !important;
+  }
+  
+  body[onload] div.leaf:nth-child(4) > div:nth-child(1) {
+    background-color: #e76f51;
+  }
+  
+  .cd__intro {
+    background: #c0e;
+  }
+  .controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+  }
+  .buttonxa button {
+    background-color: yellow; /* Fondo amarillo */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
+    font-size: 18px; /* Tamaño de fuente */
+    cursor: pointer;
+    position: relative; /* Necesario para el resplandor */
+    border-radius: 20px; /* Esquinas redondeadas */
+    transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+  }
+  
+  /* Estilo para el enlace dentro del botón */
+  .buttonxa button a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del botón */
+  }
+  
+  /* Efecto de resplandor al pasar el cursor sobre el botón */
+  .buttonxa button:hover {
+    background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
+    box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
+  }
+  
+  
+  /* Ajustes Responsive */
+  @media (max-width: 768px) {
+    .flipbook {
+      width: 100vw;
+      max-width: 95%;
+      height: 85vh;
+      max-height: 500px;
+    }
+    
+    .page {
+      font-size: 0.9em;
+      padding: 0.75em;
+    }
+  
+    .title {
+      font-size: 1.2em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .flipbook {
+      width: 100vw;
+      height: 90vh;
+      max-height: 450px;
+    }
+  
+    .page {
+      font-size: 0.85em;
+      padding: 0.5em;
+    }
+  
+    .title {
+      font-size: 1em;
+    }
+  }
+  /* Slideshow */
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-  .buttonxa a {
-    font-size: 0.5rem;
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideshow 24s infinite;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
-.description {
-  color: #fbff00;
+.slide-1 {
+  background-image: url("https://i.postimg.cc/900bYMKK/3a3ecd7c2e42f975d94549700760e99a.jpg");
+  animation-delay: 0s;
 }
 
-/* Estilo para el botón */
-.buttonxa button {
-  background-color: yellow; /* Fondo amarillo */
-  border: none; /* Sin bordes */
-  padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
-  font-size: 18px; /* Tamaño de fuente */
-  cursor: pointer;
-  position: relative; /* Necesario para el resplandor */
-  border-radius: 20px; /* Esquinas redondeadas */
-  transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+.slide-2 {
+  background-image: url("https://i.postimg.cc/NfybyK1r/4e0267b0b6b76d6db1ecf936ab93f1e0.jpg");
+  animation-delay: 8s;
 }
 
-/* Estilo para el enlace dentro del botón */
-.buttonxa button a {
-  text-decoration: none; /* Elimina el subrayado del enlace */
-  color: inherit; /* Hereda el color del texto del botón */
+.slide-3 {
+  background-image: url("https://i.postimg.cc/R0mTbG2c/6888c96195410eadd824a842a068d7e5.jpg");
+  animation-delay: 16s;
 }
 
-/* Efecto de resplandor al pasar el cursor sobre el botón */
-.buttonxa button:hover {
-  background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
-  box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
+.slide-4 {
+  background-image: url("https://i.postimg.cc/2jt7fCPj/56184db8f8a5118ee28c89583bdbbfbe.jpg");
+  animation-delay: 0s;
 }
+
+.slide-5 {
+  background-image: url("https://i.postimg.cc/mgf3t8L0/ac08e73e76b8c5cc1e707aad49441b65.jpg");
+  animation-delay: 8s;
+}
+
+.slide-6 {
+  background-image: url("https://i.postimg.cc/52BBvLjj/af73c90c2d9eac6f85f3bc7ffdb1e054.jpg");
+  animation-delay: 16s;
+}
+
+/* Resto de tus estilos... */
