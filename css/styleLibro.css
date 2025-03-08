@@ -273,17 +273,17 @@ body {
 
 .slide-4 {
   background-image: url("https://i.postimg.cc/R0mTbG2c/6888c96195410eadd824a842a068d7e5.jpg");
-  animation-delay: 0s;
+  animation-delay: 24s;
 }
 
 .slide-5 {
   background-image: url("https://i.postimg.cc/NfybyK1r/4e0267b0b6b76d6db1ecf936ab93f1e0.jpg");
-  animation-delay: 8s;
+  animation-delay: 32s;
 }
 
 .slide-6 {
   background-image: url("https://i.postimg.cc/900bYMKK/3a3ecd7c2e42f975d94549700760e99a.jpg");
-  animation-delay: 16s;
+  animation-delay: 40s;
 }
 
 /* Resto de tus estilos... */
