@@ -214,23 +214,6 @@
       </button>
     </div>
 
-    <!-- Script para detener la canción al cambiar de página -->
-    <script>
-      // Selecciona el enlace a FLORES.html
-      const flowersLink = document.querySelector('a[href="FLORES.html"]');
-
-      // Detener la canción antes de navegar a FLORES.html
-      flowersLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Evita que el enlace se ejecute de inmediato
-        const audio = document.getElementById("libro-song");
-        audio.pause(); // Detiene la canción
-        audio.currentTime = 0; // Reinicia la canción
-        setTimeout(() => {
-          window.location.href = "FLORES.html"; // Navega a la nueva página después de detener la canción
-        }, 100); // Pequeño retraso para asegurar que la canción se detenga
-      });
-    </script>
-  
     <script src="Libro.js"></script>
   </body>
 </html>
